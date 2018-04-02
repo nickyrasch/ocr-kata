@@ -52,7 +52,7 @@ class ScanNumber
       get(@number_9),
     ]
     
-    # todo: validate_checksum!(account)
+    validate_checksum!(account)
     return "#{account.join('')} #{check_status}"
   end
   
@@ -107,7 +107,7 @@ class ScanNumber
       9*a[0].to_i
     ) % 11
     unless checksum == 0
-      raise "Checksum is invalid: #{checksum}. Expected: 0"
+      @err = true
     end
   end
 end
