@@ -96,8 +96,8 @@ puts ScanNumber.new(case_3_input_3).get_account
 ###### CASE 4 ######
 
 case_4_input_1 = 
-"    _  _  _  _  _  _     _",
-"|_||_|| || ||_   |  |  ||_",
+"    _  _  _  _  _  _     _ ",
+"|_||_|| || ||_   |  |  ||_ ",
 "  | _||_||_||_|  |  |  | _|"
 
 puts ScanNumber.new(case_4_input_1).get_account
