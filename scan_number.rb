@@ -2,7 +2,6 @@ class ScanNumber
   def initialize(input)
     @input = input
     @status = ''
-    @match_fail = false
     @number_1 = []
     @number_2 = []
     @number_3 = []
@@ -54,9 +53,18 @@ class ScanNumber
     ]
     
     # todo: validate_checksum!(account)
-    check_status
-
-    return "#{account.join('')} #{@status}"
+    return "#{account.join('')} #{check_status}"
+  end
+  
+  def get(number)
+    @fail = false
+    match = match(number.join(''))
+    if @fail == true
+      @ill = true
+      return '?'
+    else 
+      return match 
+    end
   end
   
   def match(input)
@@ -65,17 +73,7 @@ class ScanNumber
         return d.last
       end
     end
-    return @match_fail = true
-  end
-  
-  def get(number)
-    match = match(number.join(''))
-    if @match_fail == true
-      @ill = true
-      return '?'
-    else 
-      return match 
-    end
+    return @fail = true
   end
   
   def check_status
